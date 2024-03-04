@@ -1,0 +1,12 @@
+:root {
+    --navbar: #000000;
+    --navbarTitle: #ffffff;
+    --serverIconHover: white;
+}
+
+[data-theme="light"] 
+{
+    --navbar: #ffffff;
+    --navbarTitle: #000000;
+    --serverIconHover: black;
+}

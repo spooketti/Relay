@@ -1,0 +1,12 @@
+/*All HTML files should make an href to this*/
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;*/
+html,body
+{
+    height:100%;
+    width:100%;
+    overflow-x: hidden;
+}

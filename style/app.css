@@ -1,0 +1,33 @@
+#ServerList
+{
+    position:fixed;
+    left:0;
+    top:64px;
+    width:70px;
+    background-color: var(--navbar);
+    height:100%;
+    overflow-y: scroll;
+    padding:6px;
+    display: flex;
+    justify-content: center;
+}
+
+.ServerListAnchor
+{
+    height:fit-content;
+    width:fit-content;
+    display:block;
+}
+
+.ServerListIcon
+{
+    width:100%;
+    border-radius: 50%;
+    border: 0px solid #ffffff;
+    transition: all .25s;
+}
+
+.ServerListIcon:hover
+{
+    box-shadow: 0 0 0 3px var(--serverIconHover);
+}
