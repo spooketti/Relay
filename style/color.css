@@ -1,7 +1,15 @@
-:root {
+/*All HTML files should make an href to this*/
+
+:root, [data-theme="dark"] {
     --navbar: #000000;
     --navbarTitle: #ffffff;
+    --channelList:#202020;
     --serverIconHover: white;
+    --messageBody:#3d3d3d;
+    --chatBody:#5c5c5c;
+    --chatBox:#3d3d3d;
+    --fontColor:white;
+    --placeholderColor:rgb(219, 219, 219);
 }
 
 [data-theme="light"] 
@@ -9,4 +17,33 @@
     --navbar: #ffffff;
     --navbarTitle: #000000;
     --serverIconHover: black;
+    --channelList:#c9c9c9;
+    --messageBody:#7b7b7b;
+    --chatBody:#505050;
+    --chatBox:#cecece;
+    --fontColor:black;
+    --placeholderColor:rgb(42, 42, 42);
 }
+::placeholder
+{
+    color:var(--placeholderColor);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #343434; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

@@ -20,6 +20,7 @@
     height:100%;
     left:0;
     text-decoration: none;
+    transition: all .25s;
 }
 
 #navIcon
@@ -32,4 +33,9 @@
     text-decoration: none;
     color:var(--navbarTitle);
     font-size: x-large;
+}
+
+#navTitle:hover
+{
+    transform: scale(105%);
 }
