@@ -1,5 +1,7 @@
 let loginEndpoint = "http://127.0.0.1:6221/login"
 let signupEndpoint = "http://127.0.0.1:6221/signup"
+let loginSharpenElement = document.getElementById("LoginSharpen")
+const sharpRadius = 150;
 
 function login()
 {
@@ -54,3 +56,11 @@ function signup()
             console.error("There was a problem with the fetch", error);
           });
 }
+
+document.addEventListener("mousemove",function(e)
+{
+  loginSharpenElement.style.left = `${e.clientX-sharpRadius}px`
+  loginSharpenElement.style.top = `${e.clientY-sharpRadius}px`
+  loginSharpenElement.style.backgroundPositionX = `${e.clientX/10}px`//
+  loginSharpenElement.style.backgroundPositionY = `${e.clientY/10}px`//`${e.clientY}px`
+})

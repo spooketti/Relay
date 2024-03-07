@@ -9,6 +9,7 @@
     display: flex;
     justify-content: space-between;
     font-family: "Kode Mono", monospace;
+    z-index: 2;
 }
 
 #navTitle

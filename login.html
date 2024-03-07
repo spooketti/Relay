@@ -1,19 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <form method="post" id="loginForm">
-        <input type="text" placeholder="Username" name="username" required id="usernameLogin">
-        <input type="password" placeholder="Password" name="password" required id="passwordLogin">
-        <input type="submit" value="Login">
-        <span class="LoginToggle">Don't Have an Account? <span class="LoginToggleButton" onclick="toggleUI()">Register</span></span>
-      </form>
-	<script src="login.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login To Relay</title>
+  <link rel="stylesheet" href="style/color.css">
+  <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/navbar.css">
+  <link rel="stylesheet" href="style/login.css">
+</head>
+
+<body>
+  <nav id="navbar" data-theme="dark"><a href="index.html" id="navTitle"><img src="assets/img/icon.png"
+        id="navIcon"><span id="navName" data-theme="dark">Relay</span></a><button
+      onclick="switchTheme('light')">Login</button></nav>
+  <div id="LoginBackground"></div>
+  <div id="LoginSharpen"></div>
+  <div id="LoginForum">
+    <div id="LoginForumBlurBG"></div>
+      <div id="LoginGraphic">
+        <i id="SplashMessage">Wake up</i>
+        <img src="assets/img/loginGraphic.png" id="LoginGraphicImage">
+      </div>
+      <div id="LoginInput">
+        <h1 style="font-family: 'Kode Mono', monospace;">Login To Relay</h1>
+        <form method="post" id="loginForm">
+          <input type="text" placeholder="Username" name="username" required id="usernameLogin" class="LoginTextInput">
+          <input type="password" placeholder="Password" name="password" required id="passwordLogin" class="LoginTextInput">
+          <input type="submit" value="Login" id="SubmitButton">
+          <span class="LoginToggle">Don't Have an Account? <span class="LoginToggleButton"
+              onclick="toggleUI()">Register</span></span>
+        </form>
+    </div>
+  </div>
+  <script src="src/login.js"></script>
+</body>
+
 </html>
