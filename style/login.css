@@ -3,9 +3,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 80px;
+    margin-top: 64px;
     overflow: hidden;
-    height:fit-content;
+    height:630px;
 }
 
 #LoginBackground
@@ -45,7 +45,7 @@
     position:relative;
     gap:50px;
     color:white;
-
+    animation: fadeInUp 1s ease;
 }
 
 #LoginForumBlurBG
@@ -91,12 +91,12 @@
     font-family: "PT Sans", sans-serif;
 }
 
-#SplashMessage
+#LoginSplashMessage
 {
     font-family: "Montserrat", sans-serif;
 }
 
-#SubmitButton
+#LoginSubmitButton
 {
     width: 100%;
     background-color: #272727;
@@ -111,7 +111,205 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-#SubmitButton:hover
+#LoginSubmitButton:hover
 {
 background-color: rgb(102, 102, 102);
 }
+
+.LoginToggleButton
+{
+    cursor: pointer;
+    color:rgb(228, 107, 127);
+    transition: all .25s;
+}
+
+
+.LoginToggleButton:hover
+{
+    color:rgb(249, 171, 184);
+}
+
+#SignupForum
+{
+    width:640px;
+    z-index: 2;
+    display:flex;
+    padding:20px;
+    position:relative;
+    gap:50px;
+    color:white;
+    display: none;
+}
+
+#SignupForumBlurBG
+{
+    height:100%;
+    width:100%;
+    position:absolute;
+    left:0;
+    top:0;
+    background-color: rgba(0, 0, 0, 0.571);
+    z-index: 0;
+    border-radius: 30px;
+}
+
+#SignupInput
+{
+    z-index: 1;
+}
+
+#SignupGraphic
+{
+    width:50%;
+    z-index: 1;
+}
+
+#SignupGraphicImage
+{
+    width:100%;
+    height:auto;
+}
+
+.SignupTextInput
+{
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #444444;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    font-family: "PT Sans", sans-serif;
+}
+
+#SignupSplashMessage
+{
+    font-family: "Montserrat", sans-serif;
+}
+
+#SignupSubmitButton
+{
+    width: 100%;
+    background-color: #272727;
+    color: rgb(255, 255, 255);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#SignupSubmitButton:hover
+{
+background-color: rgb(102, 102, 102);
+}
+
+.LoginToggleButton
+{
+    cursor: pointer;
+    color:rgb(228, 107, 127);
+    transition: all .25s;
+}
+
+
+.LoginToggleButton:hover
+{
+    color:rgb(249, 171, 184);
+}
+
+#signupPFPPreview
+{
+    height: 100px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+#uploadPFP
+{
+    cursor: pointer;
+    background-color:rgb(228, 107, 127);
+    color:white;
+    transition: all .25s;
+    border:none;
+    border-radius: 2px;
+}
+
+#uploadPFP:hover
+{
+    background-color:rgb(249, 171, 184);
+}
+
+#uploadPFPFile
+{
+    display: none;
+}
+
+#LoginFail
+{
+    position:fixed;
+    background-color: rgba(255, 0, 0, 0.744);
+    height:50px;
+    width:80%; 
+    z-index: 3;
+    top:80px;
+    color:white;
+    display: flex;
+    align-items: center;
+    padding:8px;
+    border-radius: 10px;
+    animation: disable 1s forwards;
+}
+
+@keyframes disable 
+{
+    0%
+    {
+        opacity:0;
+    }    
+    100%
+    {
+        opacity:0;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInAndOut {
+    0%
+    {
+        display: none;
+        opacity:0;
+        transform: translateY(30px);
+    }
+    10%
+    {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    90%
+    {
+        opacity:1;
+        transform: translateY(0);
+    }
+    100%
+    {
+        display: none;
+        opacity:0;
+        transform: translateY(30px);
+    }
+  }

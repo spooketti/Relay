@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="style/main.css">
   <link rel="stylesheet" href="style/navbar.css">
   <link rel="stylesheet" href="style/login.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 </head>
 
 <body>
@@ -20,21 +22,55 @@
   <div id="LoginSharpen"></div>
   <div id="LoginForum">
     <div id="LoginForumBlurBG"></div>
-      <div id="LoginGraphic">
-        <i id="SplashMessage">Wake up</i>
-        <img src="assets/img/loginGraphic.png" id="LoginGraphicImage">
-      </div>
-      <div id="LoginInput">
-        <h1 style="font-family: 'Kode Mono', monospace;">Login To Relay</h1>
-        <form method="post" id="loginForm">
-          <input type="text" placeholder="Username" name="username" required id="usernameLogin" class="LoginTextInput">
-          <input type="password" placeholder="Password" name="password" required id="passwordLogin" class="LoginTextInput">
-          <input type="submit" value="Login" id="SubmitButton">
-          <span class="LoginToggle">Don't Have an Account? <span class="LoginToggleButton"
-              onclick="toggleUI()">Register</span></span>
-        </form>
+    <div id="LoginGraphic">
+      <i id="LoginSplashMessage">Wake up</i>
+      <img src="assets/img/loginGraphic.png" id="LoginGraphicImage">
+    </div>
+    <div id="LoginInput">
+      <h1 style="font-family: 'Kode Mono', monospace;">Login To Relay</h1>
+      <form method="post" id="loginForm">
+        <input type="text" placeholder="User ID" name="username" required id="userIDLogin" class="LoginTextInput">
+        <input type="password" placeholder="Password" name="password" required id="passwordLogin"
+          class="LoginTextInput">
+        <input type="submit" value="Login" id="LoginSubmitButton">
+        <span class="LoginToggle">Don't Have an Account?</span>
+        <br>
+        <span class="LoginToggleButton" onclick="toggleUI()">Register</span>
+      </form>
     </div>
   </div>
+
+  <div id="SignupForum">
+    <div id="SignupForumBlurBG"></div>
+    <div id="SignupGraphic">
+      <i id="SignupSplashMessage">Wake up</i>
+      <img src="assets/img/loginGraphic.png" id="SignupGraphicImage">
+    </div>
+    <div id="SignupInput">
+      <h1 style="font-family: 'Kode Mono', monospace;">Register For Relay</h1>
+      <form method="post" id="signupForm">
+        <input type="text" placeholder="Username" name="username" required id="usernameSignup" class="LoginTextInput">
+        <input type="text" placeholder="User ID" name="userID" required id="userIDSignup" class="LoginTextInput">
+        <input type="password" placeholder="Password" name="password" required id="passwordSignup"
+          class="LoginTextInput">
+        <input type="password" placeholder="Confirm Password" name="passwordConfirm" required id="passwordConfirm"
+          class="LoginTextInput">
+        <span>Upload Profile Picture</span>
+        <br>
+        <img src="assets/img/DefaultPFP.png" id="signupPFPPreview">
+        <button id="uploadPFP" onclick="pfpFile.click()" type="button"><span class="material-symbols-outlined">
+            upload_file
+          </span></button>
+        <input type="file" id="uploadPFPFile" accept=".png,.jpeg,.jpg,.gif">
+        <input type="submit" value="Login" id="SignupSubmitButton">
+        <span class="LoginToggle">Don't Have an Account?</span>
+        <br>
+        <span class="LoginToggleButton" onclick="toggleUI()">Register</span>
+      </form>
+    </div>
+  </div>
+
+  <div id="LoginFail"><span>Exception: </span><span id="LoginException">This is somehow visible?</span></div>
   <script src="src/login.js"></script>
 </body>
 
