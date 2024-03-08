@@ -167,7 +167,9 @@ background-color: rgb(102, 102, 102);
 #SignupGraphicImage
 {
     width:100%;
-    height:auto;
+    height:50%;
+    top:25%;
+    position:relative;
 }
 
 .SignupTextInput
