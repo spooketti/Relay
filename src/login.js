@@ -1,5 +1,5 @@
-let loginEndpoint = "http://127.0.0.1:6221/login"
-let signupEndpoint = "http://127.0.0.1:6221/signup"
+let loginEndpoint = "http://127.0.0.1:6221/login/"
+let signupEndpoint = "http://127.0.0.1:6221/signup/"
 let loginSharpenElement = document.getElementById("LoginSharpen")
 let loginOpen = true;
 let loginField = document.getElementById("LoginForum")
@@ -28,7 +28,7 @@ function login()
       "userID":userID,
       "password":password
     }
-    fetch(loginServer,
+    fetch(loginEndpoint,
         {
             method:"POST",
             headers: {
@@ -62,7 +62,7 @@ function signup()
     "password":document.getElementById("passwordSignup").value,
     "pfp": pfpChanged ? pfpPreview.src : defaultPFP
   }
-    fetch(loginServer,
+    fetch(signupEndpoint,
         {
             method:"POST",
             headers: {
@@ -104,6 +104,7 @@ signupForm.addEventListener("submit",function(e)
   {
     showException("Your passwords do not match!")
   }
+  signup()
 })
 
 loginForm.addEventListener("submit",function(e)

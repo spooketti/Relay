@@ -40,3 +40,18 @@
 {
     transform: scale(105%);
 }
+
+#LoginButton
+{
+    font-family: "Kode Mono", monospace;   
+    background-color: var(--navbar);
+    border:none;
+    color:var(--navbarTitle);
+    cursor: pointer;
+    transition: all .25s;
+}
+
+#LoginButton:hover
+{
+   background-color: var(--navbarHighlight);
+}

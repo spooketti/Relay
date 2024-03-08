@@ -10,6 +10,7 @@
     --chatBox:#3d3d3d;
     --fontColor:white;
     --placeholderColor:rgb(219, 219, 219);
+    --navbarHighlight:rgb(68, 68, 68);
 }
 
 [data-theme="light"] 
