@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Relay</title>
-    <link rel="stylesheet" href="style/color.css">
-    <link rel="stylesheet" href="style/main.css">
-    <link rel="stylesheet" href="style/navbar.css">
-    <link rel="stylesheet" href="style/app.css">
-  </head>
-  <body>
-    <nav id="navbar" data-theme="dark"><a href="index.html" id="navTitle"><img src="assets/img/icon.png" id="navIcon"><span id="navName" data-theme="dark">Relay</span></a><button onclick="switchTheme('light')">Login</button></nav>
-    <nav id="ServerList" data-theme="dark">
-        <a class="ServerListAnchor" href="app.html?channel=1">
-            <img src="https://avatars.githubusercontent.com/u/115603886?v=4" class="ServerListIcon">
-        </a>
-    </nav>
-    <nav id="ChannelList" data-theme="dark">
-    </nav>
-    <div id="MessageBody" data-theme="dark">
 
-    </div>
-    <div id="ChatContainer" data-theme="dark">
-      <textarea id="ChatBox" placeholder="Message @User" data-theme="dark"></textarea>
-    </div>
-    <script src="src/theme.js"></script>
-    <script src="src/post.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Relay</title>
+  <link rel="stylesheet" href="style/color.css">
+  <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/navbar.css">
+  <link rel="stylesheet" href="style/app.css">
+</head>
+
+<body>
+  <nav id="navbar"><a href="index.html" id="navTitle"><img src="assets/img/icon.png" id="navIcon"><span
+        id="navName">Relay</span></a><button id="LoginButton"
+      onclick="window.location.href = 'login.html'">Login</button>
+    <div><img src="assets/img/DefaultPFP.png"></div></nav>
+  <nav id="ServerList" data-theme="dark">
+    <a class="ServerListAnchor" href="app.html?channel=1">
+      <img src="https://avatars.githubusercontent.com/u/115603886?v=4" class="ServerListIcon">
+    </a>
+  </nav>
+  <nav id="ChannelList" data-theme="dark">
+  </nav>
+  <div id="MessageBody" data-theme="dark">
+
+  </div>
+  <div id="ChatContainer" data-theme="dark">
+    <textarea id="ChatBox" placeholder="Message @User" data-theme="dark"></textarea>
+  </div>
+  <script src="src/theme.js"></script>
+  <script src="src/post.js"></script>
+  <script src="src/auth.js"></script>
+</body>
+
 </html>
