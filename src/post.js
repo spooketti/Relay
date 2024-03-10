@@ -1,5 +1,6 @@
 let submitMessageElement = document.getElementById("SubmitMessage")
 let isShiftDown = false;
+let DMEndpoint = "http://127.0.0.1:6221/sendDM/"
 
 document.addEventListener("keydown",function(e)
 {
@@ -30,5 +31,30 @@ document.addEventListener("keyup",function(e)
 
 function postMessage()
 {
-
+    let payload = 
+    {
+        "message":"abc",
+        "recipient":2
+    }
+    fetch(DMEndpoint,
+        {
+            method:"POST",
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${localStorage.getItem("jwt")}`
+              },
+            credentials: "include",
+            body: JSON.stringify(payload)
+        }).then(response =>{
+            if(response.ok)
+            {
+                return response.text()
+            }
+            throw new Error("Network response failed")
+        }).then(data => {
+            console.log("Response:", data);
+          })
+          .catch(error => {
+            console.error("There was a problem with the fetch", error);
+          });
 }
