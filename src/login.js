@@ -60,7 +60,8 @@ function signup()
     "userID":document.getElementById("userIDSignup").value,
     "username":document.getElementById("usernameSignup").value,
     "password":document.getElementById("passwordSignup").value,
-    "pfp": pfpChanged ? pfpPreview.src : defaultPFP
+    "pfp": pfpChanged ? pfpPreview.src : defaultPFP,
+    "joindate":new Date().toDateString()
   }
     fetch(signupEndpoint,
         {

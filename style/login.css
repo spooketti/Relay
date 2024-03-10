@@ -279,17 +279,6 @@ background-color: rgb(102, 102, 102);
     }
 }
 
-@keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
   @keyframes fadeInAndOut {
     0%
     {
