@@ -3,7 +3,19 @@ let loginButton = document.getElementById("LoginButton")
 let navbar = document.getElementById("navbar")
 let joinDateSpan = document.getElementById("ProfileJoinDate")
 let profileMenu = document.getElementById("ProfileMenu")
+var socket = io("http://127.0.0.1:6221/",{ autoConnect: false });  // Connect to the SocketIO server
 
+        socket.on('connect', function() {
+            console.log('Connected to server');
+        });
+
+        socket.on('disconnect', function() {
+            console.log('Disconnected from server');
+        });
+
+        socket.on('response', function(data) {
+            console.log("abc")
+        });
 fetch(authEndpoint,
     {
       method: "GET",
@@ -34,6 +46,8 @@ fetch(authEndpoint,
       navbarProfile.appendChild(navbarUsername)
       joinDateSpan.innerText = data["joindate"]
       navbarProfile.onclick = toggleProfileMenu
+      socket.auth = {"userID":data["userID"]}
+      socket.connect()
     })
     .catch(error => {
       console.error("There was a problem with the fetch", error);

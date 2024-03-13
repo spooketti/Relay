@@ -1,4 +1,5 @@
 let submitMessageElement = document.getElementById("SubmitMessage")
+let chatbox = document.getElementById("ChatBox")
 let isShiftDown = false;
 let DMEndpoint = "http://127.0.0.1:6221/sendDM/"
 
@@ -33,8 +34,8 @@ function postMessage()
 {
     let payload = 
     {
-        "message":"abc",
-        "recipient":2
+        "message":chatbox.value,
+        "recipient":1
     }
     fetch(DMEndpoint,
         {
@@ -48,6 +49,7 @@ function postMessage()
         }).then(response =>{
             if(response.ok)
             {
+                chatbox.value = null;
                 return response.text()
             }
             throw new Error("Network response failed")
