@@ -46,7 +46,7 @@ function login()
             console.log("Response:", data);
             let jwt = JSON.parse(data)
             localStorage.setItem("jwt",jwt["jwt"])
-            window.location.href = "index.html"
+            window.location.href = "app.html"
           })
           .catch(error => {
             console.error("There was a problem with the fetch", error);
@@ -61,7 +61,6 @@ function signup()
     "username":document.getElementById("usernameSignup").value,
     "password":document.getElementById("passwordSignup").value,
     "pfp": pfpChanged ? pfpPreview.src : defaultPFP,
-    "joindate":new Date().toDateString()
   }
     fetch(signupEndpoint,
         {
@@ -81,7 +80,7 @@ function signup()
             console.log("Response:", data);
             let jwt = JSON.parse(data)
             localStorage.setItem("jwt",jwt["jwt"])
-            window.location.href = "index.html"
+            window.location.href = "app.html"
           })
           .catch(error => {
             console.error("There was a problem with the fetch", error);

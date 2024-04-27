@@ -1,0 +1,60 @@
+.MenuGradient {
+    background: linear-gradient(0deg, #2d83a1, #62bfdf);
+    background-size: 400% 400%;
+
+    -webkit-animation: MenuGradient 30s ease infinite;
+    -moz-animation: MenuGradient 30s ease infinite;
+    animation: MenuGradient 30s ease infinite;
+}
+
+@-webkit-keyframes MenuGradient {
+    0%{background-position:79% 0%}
+    50%{background-position:22% 100%}
+    100%{background-position:79% 0%}
+}
+@-moz-keyframes MenuGradient {
+    0%{background-position:79% 0%}
+    50%{background-position:22% 100%}
+    100%{background-position:79% 0%}
+}
+@keyframes MenuGradient {
+    0%{background-position:79% 0%}
+    50%{background-position:22% 100%}
+    100%{background-position:79% 0%}
+}
+
+@keyframes expand
+{
+    0%
+    {
+        transform:scale(0%);
+    }
+    100%
+    {
+        transform: scale(100%);
+    }
+}
+
+@keyframes fadeIn
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut
+{
+    0%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+}
