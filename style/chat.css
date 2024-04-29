@@ -1,0 +1,36 @@
+.MessagePFP
+{
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    height:40px;
+}
+
+.MessageWrapper
+{
+    padding:6px;
+    width:100%;
+}
+
+.MessageWrapper:hover
+{
+    background-color: rgb(56, 56, 56);
+}
+
+.MessagePosterWrapper
+{
+    display: flex;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.MessageUsername
+{
+    color:white;
+    padding-left: 8px;
+}
+
+.MessageDate
+{
+    color:gray;
+    font-size: small;
+}

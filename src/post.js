@@ -1,7 +1,7 @@
 let submitMessageElement = document.getElementById("SubmitMessage")
 let chatbox = document.getElementById("ChatBox")
 let isShiftDown = false;
-let DMEndpoint = "http://127.0.0.1:6221/sendDM/"
+const sendMessageServerEndpoint = "http://127.0.0.1:6221/sendServerMessage/"
 
 document.addEventListener("keydown",function(e)
 {
@@ -14,6 +14,7 @@ document.addEventListener("keydown",function(e)
         case "Enter":
             if(!isShiftDown)
             {
+                e.preventDefault()
                 postMessage()
             }
         break;
@@ -32,12 +33,18 @@ document.addEventListener("keyup",function(e)
 
 function postMessage()
 {
+    if(!ServerChannel)
+    {
+        return
+    }
     let payload = 
     {
-        "message":chatbox.value,
-        "recipient":1
+        "content":chatbox.value,
+        "channel":ServerChannel,
+        "image":null
     }
-    fetch(DMEndpoint,
+    /*
+    fetch(sendMessageServerEndpoint,
         {
             method:"POST",
             headers: {
@@ -54,9 +61,16 @@ function postMessage()
             }
             throw new Error("Network response failed")
         }).then(data => {
+            currentMessageOffset++
             console.log("Response:", data);
+            socket.emit("sendServerMessage",{
+                channel : ServerChannel
+            })
           })
           .catch(error => {
             console.error("There was a problem with the fetch", error);
           });
+          */
+         socket.emit("sendServerMessage",payload)
+         chatbox.value = "";
 }
