@@ -9,9 +9,7 @@
     overflow-y: scroll;
     padding:6px;
     gap:5px;
-    z-index: 2;
-    /*display: flex;
-    justify-content: center;*/
+    z-index: 3;
 }
 
 #CreateServer
@@ -87,16 +85,18 @@
     font-weight: bold;
     padding-left: 5px;
     justify-content: space-between;
-    z-index: 2;
+    z-index: 3;
 }
+
+
 
 #MessageBody
 {
     position:fixed;
     left:282px;
-    top:64px;
+    top:96px;
     width:100%;
-    height:calc(100% - 128px);
+    height:calc(100% - 160px);
     background-color: var(--messageBody);
     overflow-y: scroll;
     overflow-x: hidden;
@@ -242,7 +242,7 @@
     font-weight: bold;
 }
 
-#CreateChannel
+.ServerNameButton
 {
     aspect-ratio: 1/1;
     background-color: transparent;
@@ -254,7 +254,7 @@
     transition: all .25s;
 }
 
-#CreateChannel:hover
+.ServerNameButton:hover
 {
     font-size: larger;
 }
@@ -274,6 +274,7 @@
     padding-left: 5px;
     transform: translateX(-233px);
     transition:all.25s;
+    z-index: 2;
 }
 
 #CreateChannelField
@@ -290,4 +291,24 @@
     border: none;
     color:white;
     cursor: pointer;
+}
+
+#ChannelNameNav
+{
+    height:32px;
+    left:282px;
+    width:100%;
+    top:64px;
+    position:fixed;
+    z-index: 0;
+    background-color: rgb(24, 24, 24);
+}
+
+#ChannelNameNav
+{
+    color:white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10px;
 }

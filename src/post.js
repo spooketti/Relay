@@ -43,34 +43,6 @@ function postMessage()
         "channel":ServerChannel,
         "image":null
     }
-    /*
-    fetch(sendMessageServerEndpoint,
-        {
-            method:"POST",
-            headers: {
-                "Content-Type": "application/json",
-                'Authorization': `Bearer ${localStorage.getItem("jwt")}`
-              },
-            credentials: "include",
-            body: JSON.stringify(payload)
-        }).then(response =>{
-            if(response.ok)
-            {
-                chatbox.value = null;
-                return response.text()
-            }
-            throw new Error("Network response failed")
-        }).then(data => {
-            currentMessageOffset++
-            console.log("Response:", data);
-            socket.emit("sendServerMessage",{
-                channel : ServerChannel
-            })
-          })
-          .catch(error => {
-            console.error("There was a problem with the fetch", error);
-          });
-          */
          socket.emit("sendServerMessage",payload)
          chatbox.value = "";
 }

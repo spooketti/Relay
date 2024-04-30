@@ -1,6 +1,6 @@
-//let 
 const queryMessageEndpoint = "http://127.0.0.1:6221/getServerMessage/"
 let MessageBody = document.getElementById("MessageBody")
+let ChannelNavName = document.getElementById('ChannelNameNav')
 
 function queryMessage(specialScroll) {
     let payload =
@@ -41,6 +41,7 @@ function queryMessage(specialScroll) {
                 MessageBody.scrollTop = MessageBody.scrollHeight;   
                 queryMessage(false)
             }
+            ChannelNavName.innerText = data["channelName"]
         })
         .catch(error => {
             console.error("There was a problem with the fetch", error);
@@ -99,4 +100,7 @@ socket.on("recieveServerMessage",function(msg)
     currentMessageOffset++
     appendMessage(msg,true)
 })
-queryMessage(false)
+if(ServerChannel)
+{
+    queryMessage(false)
+}

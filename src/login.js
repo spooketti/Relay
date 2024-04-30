@@ -43,7 +43,6 @@ function login()
             }
             throw new Error("Network response failed")
         }).then(data => {
-            console.log("Response:", data);
             let jwt = JSON.parse(data)
             localStorage.setItem("jwt",jwt["jwt"])
             window.location.href = "app.html"
@@ -77,7 +76,6 @@ function signup()
             }
             throw new Error("Network response failed")
         }).then(data => {
-            console.log("Response:", data);
             let jwt = JSON.parse(data)
             localStorage.setItem("jwt",jwt["jwt"])
             window.location.href = "app.html"
@@ -91,8 +89,8 @@ document.addEventListener("mousemove",function(e)
 {
   loginSharpenElement.style.left = `${e.clientX-sharpRadius}px`
   loginSharpenElement.style.top = `${e.clientY-sharpRadius}px`
-  loginSharpenElement.style.backgroundPositionX = `${e.clientX/10}px`//
-  loginSharpenElement.style.backgroundPositionY = `${e.clientY/10}px`//`${e.clientY}px`
+  loginSharpenElement.style.backgroundPositionX = `${e.clientX/10}px`
+  loginSharpenElement.style.backgroundPositionY = `${e.clientY/10}px`
 })
 
 signupForm.addEventListener("submit",function(e)
@@ -136,11 +134,11 @@ function toggleUI()
 
 pfpFile.addEventListener('change', function(event) {
   pfpChanged = true
-  const file = event.target.files[0]; // Get the selected file
+  const file = event.target.files[0];
   if (file) {
       const reader = new FileReader();
       reader.onload = function(event) {
-          const imageUrl = event.target.result; // Get the image URL
+          const imageUrl = event.target.result;
           const image = new Image();
           image.src = imageUrl;
           image.onload = function() {
@@ -148,7 +146,7 @@ pfpFile.addEventListener('change', function(event) {
               pfpPreview.src = image.src
           };
       };
-      reader.readAsDataURL(file); // Read the file as a data URL
+      reader.readAsDataURL(file);
   }
 });
 
@@ -160,7 +158,7 @@ function uploadPFP()
 function showException(exceptionMessage)
 {
   loginFail.style.animation = 'none';
-  loginFail.offsetHeight; /* trigger reflow */
+  loginFail.offsetHeight; //write about reflow
   loginFail.style.animation = "fadeInAndOut 3s forwards"; 
   loginException.innerText = exceptionMessage
 }

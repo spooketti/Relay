@@ -5,19 +5,15 @@ let joinDateSpan = document.getElementById("ProfileJoinDate")
 let profileMenu = document.getElementById("ProfileMenu")
 var socket = io("http://127.0.0.1:6221/",{ autoConnect: false,extraHeaders: {
   Authorization: localStorage.getItem("jwt")
-} });  // Connect to the SocketIO server
+} });
 
         socket.on('connect', function() {
-            console.log('Connected to server');
+            if(ServerChannel)
+            {
+              socket.emit("join",ServerChannel)
+            }
         });
 
-        socket.on('disconnect', function() {
-            console.log('Disconnected from server');
-        });
-
-        socket.on('response', function(data) {
-            console.log("abc")
-        });
 fetch(authEndpoint,
     {
       method: "GET",
@@ -29,24 +25,10 @@ fetch(authEndpoint,
     }).then(response => {
       if (response.ok) {
         loginButton.remove()
-        /*<div id="NavbarProfile"><img src="assets/img/DefaultPFP.png" id="NavbarProfilePFP"><span
-        id="NavbarProfileUsername">Spooketti</span></div>*/
-        
         return response.json()
       }
       throw new Error("Network response failed")
     }).then(data => {
-      /*<div id="ProfileMenu">
-    <div id="ProfileMenuBanner"></div>
-    <img src="assets/img/DefaultPFP.png" id="ProfileMenuPFP">
-    <span id="ProfileMenuUsername">Spooketti</span>
-    <br>
-    <span id="ProfileMenuUserID">@spooketti</span>
-    <h3>About Me</h3>
-    <p>Bio</p>
-    <h3>Joined Relay On</h3>
-    <span id="ProfileJoinDate"></span>
-  </div>*/
       document.getElementById("ProfileMenuUsername").innerText = data["username"]
       document.getElementById("ProfileMenuUserID").innerText = `@${data["userID"]}`
       let navbarProfile = document.createElement("div")
@@ -82,7 +64,6 @@ fetch(authEndpoint,
   
   function toggleProfileMenu()
   {
-    //not clean but technically better for memory
     if(profileMenu.style.display == "block")
     {
       profileMenu.style.display = "none"

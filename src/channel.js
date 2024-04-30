@@ -4,18 +4,15 @@ let DMChannel
 let ServerChannel
 let currentMessageOffset = 0
 
-function dateTime(epoch)
+function dateTime(epoch) //rewrite or cite
 {
     let today = new Date(epoch*1000)
     const dd = String(today.getDate()).padStart(2, '0');
-    const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); 
     const yyyy = today.getFullYear();
     let time = today.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     return ` ${mm}/${dd}/${yyyy} at ${time}`;
 }
-/*
-let GetDMEndpoint = "http://127.0.0.1:6221/getDM/"
-DMChannel = params.get("DMChannel")*/
 
 const createChannelEndpoint = "http://127.0.0.1:6221/createChannel/"
 const queryChannelEndpoint = "http://127.0.0.1:6221/getServerChannels/"
@@ -59,6 +56,7 @@ if (params.has("DMChannel") && params.has("ServerChannel"))
 if(!params.has("Server")&&!params.has("ServerChannel"))
 {
   document.getElementById("CreateChannel").remove()
+  document.getElementById("GetChannelLink").remove()
 }
 
 if(!ServerChannel)
@@ -94,7 +92,7 @@ function createChannel()
             }
             throw new Error("Network response failed")
           }).then(data => {
-              console.log(data)
+
           })
           .catch(error => {
             console.error("There was a problem with the fetch", error);
@@ -123,7 +121,6 @@ function queryChannel()
           }
           throw new Error("Network response failed")
         }).then(data => {
-            console.log(data)
           for(let i=0;i<data["channels"].length;i++)
           {
             let channelListItem = document.createElement("a")
@@ -133,10 +130,19 @@ function queryChannel()
             channelList.appendChild(channelListItem)
           }
           serverNameElement.innerText = data["serverName"]
+
+          let copyLinkButton = document.createElement("button")
+          copyLinkButton.innerText = "🔗"
+          copyLinkButton.id = "GetChannelLink"
+          copyLinkButton.onclick = copyServerLink
+          copyLinkButton.classList.add("ChannelCreateButton")
+          serverNameElement.appendChild(copyLinkButton)
+
           let createChannel = document.createElement("button")
           createChannel.innerText = "+"
           createChannel.id = "CreateChannel"
           createChannel.onclick = openChannelCreate
+          createChannel.classList.add("ChannelCreateButton")
           serverNameElement.appendChild(createChannel)
         })
         .catch(error => {
@@ -153,4 +159,13 @@ function closeChannelCreate()
 {  
     document.getElementById("CreateChannelField").value = ""
     document.getElementById("CreateChannelInput").style.transform = "translateX(-233px)"
+}
+
+function copyServerLink() //eventually change this
+{
+  navigator.clipboard.writeText(`file:///C:/Users/Jonli/OneDrive/Desktop/Visual%20Studio%20Projects/Relay/app.html?JoinServer=${ServerParam}`)
+  document.getElementById("GetChannelLink").innerText = "✔"
+  window.setTimeout(function(){
+    document.getElementById("GetChannelLink").innerText = "🔗"
+  },1500)
 }

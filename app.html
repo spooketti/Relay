@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <nav id="navbar"><a href="index.html" id="navTitle"><img src="assets/img/icon.png" id="navIcon"><span
+  <nav id="navbar"><a href="app.html" id="navTitle"><img src="assets/img/icon.png" id="navIcon"><span
         id="navName">Relay</span></a><button id="LoginButton"
       onclick="window.location.href = 'login.html'">Login</button>
     <!--<div id="NavbarProfile"><img src="assets/img/DefaultPFP.png" id="NavbarProfilePFP"><span
@@ -42,10 +42,11 @@
     </button>
 
   </nav>
-  <nav id="ServerName"><button id="CreateChannel">+</button></nav>
+  <nav id="ServerName"><button id="GetChannelLink" class="ServerNameButton">🔗</button><button id="CreateChannel" class="ServerNameButton">+</button></nav>
   <nav id="ChannelList" data-theme="dark">
 
   </nav>
+  <nav id="ChannelNameNav"></nav>
   <div id="MessageBody" data-theme="dark">
     
   </div>
