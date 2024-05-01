@@ -4,9 +4,9 @@ let DMChannel
 let ServerChannel
 let currentMessageOffset = 0
 
-function dateTime(epoch) //rewrite or cite
+function dateTime(epoch)
 {
-    let today = new Date(epoch*1000)
+    let today = new Date(epoch*1000) //this takes in a ms value not seconds, so multiply by 1000
     const dd = String(today.getDate()).padStart(2, '0');
     const mm = String(today.getMonth() + 1).padStart(2, '0'); 
     const yyyy = today.getFullYear();
@@ -19,7 +19,7 @@ const queryChannelEndpoint = "http://127.0.0.1:6221/getServerChannels/"
 const joinServerEndpoint = "http://127.0.0.1:6221/joinServer/"
 ServerChannel = params.get("ServerChannel")
 ServerParam = params.get("Server")
-JoinServerParam = params.get("JoinServer")
+JoinServerParam = params.get("JoinServer") //query parameters are file.html?var=value
 
 if(params.has("JoinServer"))
 {
@@ -40,7 +40,7 @@ if(params.has("JoinServer"))
         return response.text()
       }
       throw new Error("Network response failed")
-    }).then(data => {
+    }).then(data => { //joins the server created from the link
         window.location.href = "app.html"
     })
     .catch(error => {
@@ -48,12 +48,7 @@ if(params.has("JoinServer"))
     });
 }
 
-if (params.has("DMChannel") && params.has("ServerChannel"))
-{
-    window.location.href = "app.html"
-}
-
-if(!params.has("Server")&&!params.has("ServerChannel"))
+if(!params.has("Server")&&!params.has("ServerChannel")) //if there are no parameters
 {
   document.getElementById("CreateChannel").remove()
   document.getElementById("GetChannelLink").remove()
@@ -67,7 +62,7 @@ if(!ServerChannel)
 
 if(params.has("Server"))
 {
-    queryChannel()
+    queryChannel() //if it is in server view query the channels that exist in the server
 }
 
 function createChannel()
@@ -78,25 +73,7 @@ function createChannel()
      "name":channelName,
       "serverID":ServerParam,
     }
-      fetch(createChannelEndpoint,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              'Authorization': `Bearer ${localStorage.getItem("jwt")}`
-            },
-            body: JSON.stringify(payload)
-          }).then(response => {
-            if (response.ok) {
-              return response.text()
-            }
-            throw new Error("Network response failed")
-          }).then(data => {
-
-          })
-          .catch(error => {
-            console.error("There was a problem with the fetch", error);
-          });
+    socket.emit("createChannel",payload) //emit allowing for real time creation
 }
 
 function queryChannel()
@@ -150,6 +127,7 @@ function queryChannel()
         });
 }
 
+
 function openChannelCreate()
 {
     document.getElementById("CreateChannelInput").style.transform = "translateX(0px)"
@@ -161,9 +139,9 @@ function closeChannelCreate()
     document.getElementById("CreateChannelInput").style.transform = "translateX(-233px)"
 }
 
-function copyServerLink() //eventually change this
+function copyServerLink()
 {
-  navigator.clipboard.writeText(`file:///C:/Users/Jonli/OneDrive/Desktop/Visual%20Studio%20Projects/Relay/app.html?JoinServer=${ServerParam}`)
+  navigator.clipboard.writeText(`app.html?JoinServer=${ServerParam}`)
   document.getElementById("GetChannelLink").innerText = "✔"
   window.setTimeout(function(){
     document.getElementById("GetChannelLink").innerText = "🔗"

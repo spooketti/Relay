@@ -15,7 +15,7 @@
     top:0;
     width:100%;
     height:100%;
-    background-image: url("../assets/img/loginPCB.jpg");
+    background-image: url("../assets/img/loginPCB.jpg"); /*Circuit board public domain image*/
     filter:blur(5px);
     background-size: cover;
 

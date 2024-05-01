@@ -29,7 +29,7 @@ function uploadCreateServerPFP() {
     createServerFile.click()
 }
 
-createServerFile.addEventListener('change', function (event) { //cite 
+createServerFile.addEventListener('change', function (event) { //when the server pfp is uploaded
     const file = event.target.files[0];
     if (file) {
         const reader = new FileReader();
@@ -46,12 +46,12 @@ createServerFile.addEventListener('change', function (event) { //cite
                 createServerIcon.appendChild(serverProfile)
             };
         };
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(file); //convert to base 64
     }
 });
 
 let xhr = new XMLHttpRequest();
-xhr.open("GET", "https://spooketti.github.io/portfolio/assets/images/favicon.ico", true); //change this
+xhr.open("GET", "https://i.ibb.co/jWTYmQS/Default-PFP.png", true); //default pfp hosted on the internet for the sake of xml http request giving base64
 xhr.responseType = "blob";
 xhr.onload = function () {
     let reader = new FileReader();
@@ -70,7 +70,7 @@ function submitServer() {
         "name": createServerInput.value,
         "pfp": createServerIcon.firstChild.nodeName === "IMG" ? createServerIcon.firstChild.src : defaultServerPFP
     }
-    fetch(createServerEndpoint,
+    fetch(createServerEndpoint, //POST request to server to create the server on the users account
         {
             method: "POST",
             headers: {

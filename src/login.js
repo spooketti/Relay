@@ -28,7 +28,7 @@ function login()
       "userID":userID,
       "password":password
     }
-    fetch(loginEndpoint,
+    fetch(loginEndpoint, //when you log in save a JWT
         {
             method:"POST",
             headers: {
@@ -164,7 +164,7 @@ function showException(exceptionMessage)
 }
 
 let xhr = new XMLHttpRequest();       
-    xhr.open("GET", "https://spooketti.github.io/portfolio/assets/images/favicon.ico", true); 
+    xhr.open("GET", "https://i.ibb.co/jWTYmQS/Default-PFP.png", true); 
     xhr.responseType = "blob";
     xhr.onload = function () {
             let reader = new FileReader();

@@ -22,9 +22,11 @@ function queryMessage(specialScroll) {
             }
             throw new Error("Network response failed")
         }).then(data => {
-            currentMessageOffset += 5
-            if(data["messages"].length<=0)
+            currentMessageOffset += 5 
+            if(data["messages"].length<=0) 
             {
+                ChannelNavName.innerText = data["channelName"]
+                chatbox.placeholder = `Messsage #${data["channelName"]}`
                 return
             }
             let marker = MessageBody.firstElementChild
@@ -38,10 +40,11 @@ function queryMessage(specialScroll) {
             }
             if(MessageBody.scrollHeight <= MessageBody.clientHeight)
             {
-                MessageBody.scrollTop = MessageBody.scrollHeight;   
+                MessageBody.scrollTop = MessageBody.scrollHeight;
                 queryMessage(false)
             }
             ChannelNavName.innerText = data["channelName"]
+            chatbox.placeholder = `Messsage #${data["channelName"]}`
         })
         .catch(error => {
             console.error("There was a problem with the fetch", error);
@@ -69,11 +72,11 @@ function appendMessage(data,isNew)
         MessageContent.classList.add("MessageContent")
         if(isNew)
         {
-            MessageBody.appendChild(MessageWrapper)
+            MessageBody.appendChild(MessageWrapper) //if the message is new append it to the end as the end is where the newest message is
         }
         else
         {
-            MessageBody.prepend(MessageWrapper)
+            MessageBody.prepend(MessageWrapper) //if this is an old message query it at the top as thats where the old messages are
         }
         MessageWrapper.appendChild(MessagePosterWrapper)
         MessagePosterWrapper.appendChild(MessagePFP)
@@ -99,6 +102,16 @@ socket.on("recieveServerMessage",function(msg)
 {
     currentMessageOffset++
     appendMessage(msg,true)
+})
+
+socket.on("recieveChannelCreate",function(msg)
+{
+  let channelList = document.getElementById("ChannelList")
+  let channelListItem = document.createElement("a")
+  channelListItem.classList.add("ChannelListItem")
+  channelListItem.innerText = msg["name"]
+  channelListItem.href = `app.html?ServerChannel=${msg["channelID"]}&Server=${ServerParam}`
+  channelList.appendChild(channelListItem)
 })
 if(ServerChannel)
 {

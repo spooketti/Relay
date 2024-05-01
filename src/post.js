@@ -43,6 +43,6 @@ function postMessage()
         "channel":ServerChannel,
         "image":null
     }
-         socket.emit("sendServerMessage",payload)
+         socket.emit("sendServerMessage",payload) //real time messaging
          chatbox.value = "";
 }

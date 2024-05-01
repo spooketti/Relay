@@ -5,7 +5,8 @@
     top:64px;
     width:70px;
     background-color: var(--navbar);
-    height:100%;
+    height: calc(100% - 64px);
+    overflow-x: auto;
     overflow-y: scroll;
     padding:6px;
     gap:5px;

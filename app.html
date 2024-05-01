@@ -22,17 +22,15 @@
   <nav id="navbar"><a href="app.html" id="navTitle"><img src="assets/img/icon.png" id="navIcon"><span
         id="navName">Relay</span></a><button id="LoginButton"
       onclick="window.location.href = 'login.html'">Login</button>
-    <!--<div id="NavbarProfile"><img src="assets/img/DefaultPFP.png" id="NavbarProfilePFP"><span
-        id="NavbarProfileUsername">Spooketti</span></div>-->
   </nav>
   <div id="ProfileMenu">
     <div id="ProfileMenuBanner"></div>
     <img src="assets/img/DefaultPFP.png" id="ProfileMenuPFP">
-    <span id="ProfileMenuUsername">Spooketti</span>
+    <span id="ProfileMenuUsername"></span>
     <br>
-    <span id="ProfileMenuUserID">@spooketti</span>
+    <span id="ProfileMenuUserID"></span>
     <h3>About Me</h3>
-    <p>Bio</p>
+    <p>A User on Relay!</p>
     <h3>Joined Relay On</h3>
     <span id="ProfileJoinDate"></span>
   </div>
@@ -40,11 +38,9 @@
     <button id="CreateServer" onclick="openCreateServer()">
       <span style="pointer-events:none">+</span>
     </button>
-
   </nav>
   <nav id="ServerName"><button id="GetChannelLink" class="ServerNameButton">🔗</button><button id="CreateChannel" class="ServerNameButton">+</button></nav>
   <nav id="ChannelList" data-theme="dark">
-
   </nav>
   <nav id="ChannelNameNav"></nav>
   <div id="MessageBody" data-theme="dark">
@@ -62,7 +58,7 @@
       </div>
       <div id="CreateServerName">
         <h3>Server Name</h3>
-        <input type="text" id="CreateServerNameInput">
+        <input type="text" id="CreateServerNameInput" autocomplete="off">
       </div>
       <div id="CreateServerControlPanel">
         <button style="background-color: #f24949;" onclick="closeCreateServer()">Cancel</button>
