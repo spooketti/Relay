@@ -39,12 +39,17 @@ function login()
         }).then(response =>{
             if(response.ok)
             {
-                return response.text()
+                return response.json()
             }
             throw new Error("Network response failed")
         }).then(data => {
-            let jwt = JSON.parse(data)
-            localStorage.setItem("jwt",jwt["jwt"])
+            //let response = JSON.parse(data)
+            if(data["error"] != null)
+              {
+                showException(data["error"])
+                return
+              }
+            localStorage.setItem("jwt",data["jwt"])
             window.location.href = "app.html"
           })
           .catch(error => {
@@ -72,12 +77,17 @@ function signup()
         }).then(response =>{
             if(response.ok)
             {
-                return response.text()
+                return response.json()
             }
             throw new Error("Network response failed")
         }).then(data => {
-            let jwt = JSON.parse(data)
-            localStorage.setItem("jwt",jwt["jwt"])
+            //let jwt = JSON.parse(data)
+            if(data["error"])
+            {
+              showException(data["error"])
+              return
+            }
+            localStorage.setItem("jwt",data["jwt"])
             window.location.href = "app.html"
           })
           .catch(error => {
