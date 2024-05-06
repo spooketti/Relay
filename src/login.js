@@ -1,5 +1,5 @@
-let loginEndpoint = "http://127.0.0.1:6221/login/"
-let signupEndpoint = "http://127.0.0.1:6221/signup/"
+let loginEndpoint = "https://relayserver-5l9m.onrender.com/login/"//"http://127.0.0.1:6221/login/"
+let signupEndpoint = "https://relayserver-5l9m.onrender.com/signup/" //"http://127.0.0.1:6221/signup/"
 let loginSharpenElement = document.getElementById("LoginSharpen")
 let loginOpen = true;
 let loginField = document.getElementById("LoginForum")

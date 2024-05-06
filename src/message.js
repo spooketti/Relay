@@ -1,4 +1,4 @@
-const queryMessageEndpoint = "http://127.0.0.1:6221/getServerMessage/"
+const queryMessageEndpoint = "https://relayserver-5l9m.onrender.com/getServerMessage/"//"http://127.0.0.1:6221/getServerMessage/"
 let MessageBody = document.getElementById("MessageBody")
 let ChannelNavName = document.getElementById('ChannelNameNav')
 

@@ -1,9 +1,14 @@
-let authEndpoint = "http://127.0.0.1:6221/auth/"
+let authEndpoint = "https://relayserver-5l9m.onrender.com/auth/"//"http://127.0.0.1:6221/auth/"
 let loginButton = document.getElementById("LoginButton")
 let navbar = document.getElementById("navbar")
 let joinDateSpan = document.getElementById("ProfileJoinDate")
 let profileMenu = document.getElementById("ProfileMenu")
+/*
 var socket = io("http://127.0.0.1:6221/",{ autoConnect: false,extraHeaders: { //connect to the backend with socket.io
+  Authorization: localStorage.getItem("jwt")
+} });
+*/
+var socket = io("https://relayserver-5l9m.onrender.com/",{ autoConnect: false,extraHeaders: { //connect to the backend with socket.io
   Authorization: localStorage.getItem("jwt")
 } });
 
@@ -75,7 +80,7 @@ fetch(authEndpoint,
     profileMenu.style.animation = "fadeInUp 1s ease"
   }
 
-const getServerEndpoint = "http://127.0.0.1:6221/getServer/"
+const getServerEndpoint = "https://relayserver-5l9m.onrender.com/getServer/"//"http://127.0.0.1:6221/getServer/"
 let ServerListNav = document.getElementById("ServerList")
 function queryServer() //get the servers that the user is in
 {
@@ -100,8 +105,13 @@ function queryServer() //get the servers that the user is in
           let serverIMG = document.createElement("img")
           serverIMG.classList.add("ServerListIcon")
           serverIMG.src = data["servers"][i]["pfp"]
+          serverIMG.id = `navServer${data["servers"][i]["serverID"]}`
           serverAnchor.appendChild(serverIMG)
           }
+          if(ServerParam)
+            {
+              document.getElementById(`navServer${ServerParam}`).classList.add("activeServer")
+            }
         })
         .catch(error => {
           console.error("There was a problem with the fetch", error);

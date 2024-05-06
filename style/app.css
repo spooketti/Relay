@@ -313,3 +313,8 @@
     align-items: center;
     padding-left: 10px;
 }
+
+.activeServer
+{
+    box-shadow: 0 0 0 1.5px var(--serverIconHover);
+}

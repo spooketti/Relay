@@ -1,4 +1,4 @@
-const createServerEndpoint = "http://127.0.0.1:6221/createServer/"
+const createServerEndpoint = "https://relayserver-5l9m.onrender.com/createServer/"//"http://127.0.0.1:6221/createServer/"
 let createServerMenu = document.getElementById("CreateServerMenu")
 let createServerFile = document.getElementById("CreateServerFile")
 let createServerIcon = document.getElementById("CreateServerIcon")
