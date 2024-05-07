@@ -141,7 +141,7 @@ function closeChannelCreate()
 
 function copyServerLink()
 {
-  navigator.clipboard.writeText(`app.html?JoinServer=${ServerParam}`)
+  navigator.clipboard.writeText(`https://spooketti.github.io/Relay/app.html?JoinServer=${ServerParam}`)
   document.getElementById("GetChannelLink").innerText = "✔"
   window.setTimeout(function(){
     document.getElementById("GetChannelLink").innerText = "🔗"
