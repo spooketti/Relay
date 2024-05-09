@@ -169,6 +169,20 @@
     padding-left: 25px;
 }
 
+#EditProfileButton
+{
+    background-color: #429eed;
+    border:none;
+    font-family: "PT Sans", sans-serif;
+    color:white;
+    width:100px;
+    aspect-ratio: 1.8/1;
+    border-radius: 9px;
+    transition: all .25s;
+    cursor:pointer;
+    margin-left: 5px;
+}
+
 #LogoutButton
 {
     background-color: #429eed;
@@ -182,12 +196,12 @@
     cursor:pointer;
 }
 
-#LogoutButton:hover
+#LogoutButton:hover, #EditProfileButton:hover
 {
     filter:brightness(50%);
 }
 
-#LogoutButton:active
+#LogoutButton:active,  #EditProfileButton:active
 {
     filter:brightness(25%);
 }

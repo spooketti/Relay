@@ -3,6 +3,20 @@ let loginButton = document.getElementById("LoginButton")
 let navbar = document.getElementById("navbar")
 let joinDateSpan = document.getElementById("ProfileJoinDate")
 let profileMenu = document.getElementById("ProfileMenu")
+let editProfileWrapper = document.getElementById("EditProfileMenuWrapper")
+
+
+function toggleEditProfileMenu(choice) {
+  editProfileWrapper.style.filter = "opacity(1)"
+  editProfileWrapper.style.display = "flex"
+    if (choice=="close") {
+        editProfileWrapper.style.filter = "opacity(0)"
+        window.setTimeout(function () {
+            editProfileWrapper.style.display = "none"
+        }, 500)
+        return
+    }
+}
 /*
 var socket = io("http://127.0.0.1:6221/",{ autoConnect: false,extraHeaders: { //connect to the backend with socket.io
   Authorization: localStorage.getItem("jwt")
@@ -54,6 +68,8 @@ fetch(authEndpoint,
       joinDateSpan.innerText = dateTime(data["joindate"])
       navbarProfile.onclick = toggleProfileMenu
       document.getElementById("ProfileMenuPFP").src = data["pfp"]
+      document.getElementById("EditPFPIMG").src = data["pfp"]
+      document.getElementById("ProfileMenuBio").innerText = data["bio"]
       let logoutWrapper = document.createElement("div")
       logoutWrapper.id = "LogoutWrapper"
       profileMenu.appendChild(logoutWrapper)
@@ -61,7 +77,12 @@ fetch(authEndpoint,
       logoutButton.id = "LogoutButton"
       logoutButton.innerText = "Log Out"
       logoutWrapper.appendChild(logoutButton)
-      logoutButton.onclick = logout
+
+      let openProfEditButton = document.createElement("button")
+      openProfEditButton.id = "EditProfileButton"
+      openProfEditButton.innerText = "Edit Profile"
+      logoutWrapper.appendChild(openProfEditButton)
+      openProfEditButton.onclick = toggleEditProfileMenu
       socket.connect() //connect to socket
     })
     .catch(error => {
