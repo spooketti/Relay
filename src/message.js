@@ -2,6 +2,7 @@ const queryMessageEndpoint = "https://relayserver-5l9m.onrender.com/getServerMes
 let MessageBody = document.getElementById("MessageBody")
 let ChannelNavName = document.getElementById('ChannelNameNav')
 let urlRegex = /(https?:\/\/[^\s]+)/g
+let imgURLRegex = /^http[^\?]*.(jpg|jpeg|gif|png|tiff|bmp|webp)(\?(.*))?$/gmi
 
 function queryMessage(specialScroll) {
     let payload =
@@ -104,6 +105,11 @@ function appendMessage(data, isNew) {
             urlAnchor.target = "_blank"
             urlAnchor.rel = "noopener"
             urlAnchor.style.color = "#429eed"
+            if (url.match(imgURLRegex) != null) {
+                urlAnchor = document.createElement("img")
+                urlAnchor.src = url
+                urlAnchor.style.width = "280px"
+            }
             MessageContent.appendChild(urlAnchor)
             lastIndex = index + url.length;
         });
