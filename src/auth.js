@@ -1,4 +1,4 @@
-let authEndpoint = "https://relayserver-5l9m.onrender.com/auth/"//"http://127.0.0.1:6221/auth/"
+let authEndpoint = `${serverAddress}/auth/`
 let loginButton = document.getElementById("LoginButton")
 let navbar = document.getElementById("navbar")
 let joinDateSpan = document.getElementById("ProfileJoinDate")
@@ -22,7 +22,7 @@ var socket = io("http://127.0.0.1:6221/",{ autoConnect: false,extraHeaders: { //
   Authorization: localStorage.getItem("jwt")
 } });
 */
-var socket = io("https://relayserver-5l9m.onrender.com/",{ autoConnect: false,extraHeaders: { //connect to the backend with socket.io
+var socket = io(`${serverAddress}/`,{ autoConnect: false,extraHeaders: { //connect to the backend with socket.io
   Authorization: localStorage.getItem("jwt")
 } });
 
@@ -101,7 +101,7 @@ fetch(authEndpoint,
     profileMenu.style.animation = "fadeInUp 1s ease"
   }
 
-const getServerEndpoint = "https://relayserver-5l9m.onrender.com/getServer/"//"http://127.0.0.1:6221/getServer/"
+const getServerEndpoint = `${serverAddress}/getServer/`
 let ServerListNav = document.getElementById("ServerList")
 function queryServer() //get the servers that the user is in
 {

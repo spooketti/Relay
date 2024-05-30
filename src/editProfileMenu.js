@@ -1,4 +1,4 @@
-const updateUserEndpoint = "https://relayserver-5l9m.onrender.com/updateUser/"
+const updateUserEndpoint = `${serverAddress}/updateUser/`
 let editPFPElement = document.getElementById("EditPFPIMG")
 let editPFPFile = document.getElementById("EditPFPFile")
 let editPFPChanged = false

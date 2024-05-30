@@ -1,7 +1,7 @@
 let submitMessageElement = document.getElementById("SubmitMessage")
 let chatbox = document.getElementById("ChatBox")
 let isShiftDown = false;
-const sendMessageServerEndpoint = "https://relayserver-5l9m.onrender.com/sendServerMessage/"//"http://127.0.0.1:6221/sendServerMessage/"
+const sendMessageServerEndpoint = `${serverAddress}/sendServerMessage/`
 
 document.addEventListener("keydown",function(e)
 {

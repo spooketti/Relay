@@ -14,9 +14,9 @@ function dateTime(epoch)
     return ` ${mm}/${dd}/${yyyy} at ${time}`;
 }
 
-const createChannelEndpoint = "https://relayserver-5l9m.onrender.com/createChannel/"//"http://127.0.0.1:6221/createChannel/"
-const queryChannelEndpoint = "https://relayserver-5l9m.onrender.com/getServerChannels/"//"http://127.0.0.1:6221/getServerChannels/"
-const joinServerEndpoint = "https://relayserver-5l9m.onrender.com/joinServer/"//"http://127.0.0.1:6221/joinServer/"
+const createChannelEndpoint = `${serverAddress}/createChannel/`
+const queryChannelEndpoint = `${serverAddress}/getServerChannels/`
+const joinServerEndpoint = `${serverAddress}/joinServer/`
 ServerChannel = params.get("ServerChannel")
 ServerParam = params.get("Server")
 JoinServerParam = params.get("JoinServer") //query parameters are file.html?var=value
