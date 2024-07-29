@@ -1,5 +1,5 @@
-let serverAddress = "https://relayserver-5l9m.onrender.com"
-let isDebug = true
+let serverAddress = "https://relayserver-1.onrender.com/"
+let isDebug = false
 if (isDebug) {
     serverAddress = "http://127.0.0.1:6221"
 }
