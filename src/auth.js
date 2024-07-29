@@ -76,6 +76,7 @@ fetch(authEndpoint,
       let logoutButton = document.createElement("button")
       logoutButton.id = "LogoutButton"
       logoutButton.innerText = "Log Out"
+      logoutButton.onclick = logout
       logoutWrapper.appendChild(logoutButton)
 
       let openProfEditButton = document.createElement("button")
